@@ -148,9 +148,7 @@ passport.authenticate("discord"));
 app.get("/auth/discord/callback",
 
 passport.authenticate("discord",{
-
     failureRedirect:"/login.html"
-
 }),
 
 (req,res)=>{
@@ -158,8 +156,6 @@ passport.authenticate("discord",{
     res.redirect("/admin.html");
 
 });
-
-
 
 // =====================
 // Admin API

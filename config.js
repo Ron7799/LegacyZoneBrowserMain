@@ -5,7 +5,7 @@ module.exports = {
     discordClientSecret: "R5TTVArSBtGxNOje2rc5erqXBFyL1_T7",
 
     callbackURL:
-    "https://legacy-zonebrowser-2.onrender.com/auth/discord/callback",
+    "https://legacy-zonebrowser-3.onrender.com/auth/discord/callback",
 
 
     admins: [
