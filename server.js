@@ -140,11 +140,6 @@ function isAdmin(req){
 // =====================
 
 
-app.get("/auth/discord",
-passport.authenticate("discord"));
-
-
-
 app.get("/auth/discord/callback",
 
 passport.authenticate("discord",{
@@ -153,7 +148,7 @@ passport.authenticate("discord",{
 
 (req,res)=>{
 
-    res.redirect("/admin.html");
+    res.redirect("/admin");
 
 });
 
