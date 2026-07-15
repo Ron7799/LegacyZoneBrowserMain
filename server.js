@@ -213,16 +213,25 @@ app.get("/api/user",(req,res)=>{
 app.get("/admin",(req,res)=>{
 
 
-    if(!isAdmin(req)){
+    if(!req.user){
 
         return res.redirect("/login.html");
 
     }
 
 
-    res.sendFile(
-        __dirname + "/admin.html"
-    );
+    const isAdmin =
+    config.admins.includes(req.user.id);
+
+
+    if(!isAdmin){
+
+        return res.send("אין לך הרשאה");
+
+    }
+
+
+    res.sendFile(__dirname + "/admin.html");
 
 
 });
@@ -257,25 +266,6 @@ app.get("/logout",(req,res)=>{
 // =====================
 // EVENTS
 // =====================
-
-
-
-app.post("/api/events",(req,res)=>{
-
-
-    if(!isAdmin(req)){
-
-        return res.status(403).json({
-
-            success:false,
-
-            message:"אין הרשאה"
-
-        });
-
-    }
-
-
 
     const data = getData();
 
@@ -322,12 +312,6 @@ app.post("/api/events",(req,res)=>{
         success:true
 
     });
-
-
-});
-
-
-
 
 
 app.get("/api/events",(req,res)=>{
