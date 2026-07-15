@@ -531,6 +531,17 @@ app.delete("/api/updates/:id",(req,res)=>{
 // START SERVER
 // =====================
 
+app.get("/auth/discord/callback",
+
+passport.authenticate("discord",{
+    failureRedirect:"/login.html"
+}),
+
+(req,res)=>{
+
+    res.redirect("/admin");
+
+});
 
 app.listen(PORT,()=>{
 
